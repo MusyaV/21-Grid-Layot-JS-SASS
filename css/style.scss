@@ -1,0 +1,145 @@
+html {
+    body {
+        margin: 0px;
+        width: 100%;
+
+        .wrapper {
+            min-height: 100%;
+            display: grid;
+            margin: 20px auto;
+            grid-template: minmax(100px, auto) 1fr minmax(100px, auto) / 1fr;
+            grid-template-areas:
+                "header"
+                "main"
+                "footer";
+
+            .header {
+                grid-area: header;
+                background-color: rgba(90, 73, 57, 0.733);
+                padding: 15px;
+                display: grid;
+                grid-template-columns: 10% 90%;
+
+                .header_logo {
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50%;
+                    background-color: chartreuse;
+                }
+
+                .header_menu {
+                    display: grid;
+                    width: 100%;
+                    text-decoration: none;
+                    grid-template-columns: 100px 100px 100px 100px;
+                    justify-content: right;
+                    margin-right: 5px;
+
+                    .header_list {
+                        li {
+                            .header_link {
+                                color: chartreuse;
+                                font-size: 20px;
+                                text-decoration: none;
+                                font-family: sans-serif;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .main {
+                grid-area: main;
+                background-color: rgba(0, 0, 0, 0.815);
+                display: grid;
+                grid-template-columns: 300px auto;
+                gap: 50px;
+                padding: 20px 50px;
+
+                .sidebar {
+                    background-color: darkgray;
+
+                    .sidebarmenu {
+                        .sidebar_list {
+                            li {
+
+                                margin: 20px;
+
+                                .sidebar_link {
+                                    color: white;
+                                    font-size: 20px;
+                                    text-decoration: none;
+                                    font-family: sans-serif;
+                                    font-style: str-index($string: "", $substring: "s");
+
+                                    &:hover {
+                                        color: chartreuse;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                .content {
+                    h1 {
+                        color: chartreuse;
+                        font-size: 40px;
+                        text-decoration: none;
+                        font-family: sans-serif;
+                    }
+
+                    .content_gallery {
+                        h2 {
+                            color: white;
+                            font-size: 30px;
+                            text-decoration: none;
+                            font-family: sans-serif;
+                        }
+
+                        .gallery_item {
+                            display: grid;
+                            grid-template-columns: 350px 350px 350px;
+                            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+                            gap: 10px;
+
+                            .gallery {
+                                position: relative;
+                                padding: 0px 0px 85% 0px;
+
+                                img {
+                                    position: absolute;
+                                    top: 0;
+                                    left: 0;
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                }
+                            }
+
+                            .gallery:nth-child(1) {
+                                grid-row: span 2;
+                                grid-column: span 2;
+                            }
+
+                            .gallery:nth-child(5) {
+                                grid-row: span 2;
+                                grid-column: span 2;
+                            }
+
+                            .gallery:nth-child(7) {
+                                grid-row: span 2;
+                                grid-column: span 2;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .footer {
+                grid-area: footer;
+                background-color: rgb(255, 226, 145);
+            }
+        }
+    }
+}
